@@ -13,6 +13,19 @@ services:
     networks:
       - d1zero
 
+  test-db:
+    image: postgres:14
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - d1zero
+
 networks:
   d1zero:
 
